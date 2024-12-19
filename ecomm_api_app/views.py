@@ -27,7 +27,7 @@ class LoginView(APIView):
             return Response(
                 {
                     "message": "Login successful",
-                    "username": serializer.validated_data['username'],
+                    "username": serializer.data['username'],
                 },
                 status=status.HTTP_200_OK
             )  # Return success response
