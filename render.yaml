@@ -1,20 +1,20 @@
 databases:
   - name: ecommerce_db_instance_name
     plan: free
-    databaseName: ecommerce_app_db_user
+    databaseName: ecommerce_app_db_pssk
     user: ecommerce_app_db_user
 
 services:
   - type: web
     plan: free
-    name: ecommerce_db_instance_name
+    name: ecommerce_app_db_user
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: ecommerce_app_db_pssk
+          name: ecommerce_db_instance_name
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
