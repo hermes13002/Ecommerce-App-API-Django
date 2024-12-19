@@ -1,7 +1,7 @@
 databases:
   - name: ecommerce_db_instance_name
     plan: free
-    databaseName: ecommerce_app_db_pssk
+    databaseName: ecommerce_app_db_user
     user: ecommerce_app_db_user
 
 services:
