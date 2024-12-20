@@ -29,4 +29,4 @@ class LoginSerializer(serializers.Serializer):
         user = authenticate(username=data['email'], password=data['password'])
         if not user:
             raise serializers.ValidationError("Invalid credentials")  # Raise error if credentials are invalid
-        return user
+        return {"user": user, "email": data['email']}
