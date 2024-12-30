@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "dpg-cthvlijqf0us73dpbmm0-a.oregon-postgres.render.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "ecomm_api",
+            "password": "HUTsSHgHrbxYXNFx2j29lDRqlPi1et2J",
+            "username": "ecommerce_app_db_user",
+            "database": "ecommerce_app_db_pssk"
+        }
+    ]
+}
