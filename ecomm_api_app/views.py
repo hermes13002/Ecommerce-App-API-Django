@@ -3,6 +3,7 @@ from rest_framework.response import Response  # Importing Response for sending A
 from rest_framework import status  # Importing status for HTTP status codes
 from .serializers import RegisterSerializer, LoginSerializer  # Importing the serializers
 from rest_framework_simplejwt.tokens import RefreshToken  # Importing RefreshToken for generating tokens
+from rest_framework.permissions import IsAuthenticated  # Importing permissions
 
 # View for user registration
 class RegisterView(APIView):
@@ -55,3 +56,26 @@ class LoginView(APIView):
             )  # Return success response with user details
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Return error response if data is invalid
 
+
+
+class ProfileView(APIView):
+    permission_classes = [IsAuthenticated]  # Ensure the user is authenticated
+
+    def get(self, request):
+        user = request.user  # Get the logged-in user
+        refresh = RefreshToken.for_user(user)
+        return Response(
+            {
+                "username": user.username,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "email": user.email,
+                "phonenumber": user.phonenumber,
+                "address": user.address,
+                "tokens": {
+                    "refresh": str(refresh),
+                    "access": str(refresh.access_token),
+                },
+            },
+            status=status.HTTP_200_OK
+        )
