@@ -86,14 +86,28 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ecommerce_app_db_pssk',
+#         'USER': 'ecommerce_app_db_user',
+#         'PASSWORD': 'HUTsSHgHrbxYXNFx2j29lDRqlPi1et2J',
+#         'HOST': 'dpg-cthvlijqf0us73dpbmm0-a.oregon-postgres.render.com',  # Render DB host
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommerce_app_db_pssk',
-        'USER': 'ecommerce_app_db_user',
-        'PASSWORD': 'HUTsSHgHrbxYXNFx2j29lDRqlPi1et2J',
-        'HOST': 'dpg-cthvlijqf0us73dpbmm0-a.oregon-postgres.render.com',  # Render DB host
-        'PORT': '5432',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_i1tjuOsQye-A24oL3jN',
+        'HOST': 'pg-ecomm-db-soaresayoigbala-aa54.b.aivencloud.com',
+        'PORT': '20226',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 
